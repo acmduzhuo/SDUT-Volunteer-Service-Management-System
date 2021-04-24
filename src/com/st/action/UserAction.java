@@ -34,7 +34,7 @@ public class UserAction {
 	@RequestMapping("user_list")
 	@ResponseBody
 	public TableJson user_list(@RequestParam Map params) {
-		System.out.println(params);
+//		System.out.println(params);
 		//将参数传递给SQL语句
 		//		service调用dao--mapper--sql
 		//查询结果的所有数据量

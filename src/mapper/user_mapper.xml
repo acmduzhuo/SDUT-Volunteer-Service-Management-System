@@ -53,6 +53,6 @@
 	select * from crm_user where User_loginname=#{login_name}
 </select>
 <select id="user_login_guanli" resultType="map" parameterType="map">
-	select * from crm_user where User_loginname=#{login_name}
+	select * from crm_guanli where User_loginname=#{login_name}
 </select>
 </mapper>
