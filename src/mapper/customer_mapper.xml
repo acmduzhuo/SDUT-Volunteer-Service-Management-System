@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="com.st.dao.CustomerDao">
+   <sql id="customer_select_where">
+       Customer_department like '%${check}%' or
+       Customer_id like '%${check}%' or
+       Customer_name like '%${check}%' or
+       Customer_tel like '%${check}%' or
+       Customer_addr like '%${check}%' or
+       Customer_liaison like '%${check}%'  
+   </sql>
+	
+<select id="customer_list" resultType="map" parameterType="map">
+	select * 
+	from crm_customer where 
+	Customer_department like '%${check}%' or
+	Customer_id like '%${check}%' or
+    Customer_name like '%${check}%' or
+    Customer_tel like '%${check}%' or
+    Customer_addr like '%${check}%' or
+    Customer_liaison like '%${check}%' 
+    limit ${start},${limit}
+</select>
+	
+<select id="getCount" resultType="int" parameterType="map">
+	select count(customer_id) from crm_customer where
+	Customer_id like '%${check}%' or
+    Customer_name like '%${check}%' or
+    Customer_tel like '%${check}%' or
+    Customer_addr like '%${check}%' or
+    Customer_liaison like '%${check}%' or
+    Customer_department like '%${check}%'
+</select>
+
+<!-- 第一层与数据库有关 -->
+<insert id="customer_save" parameterType="map">
+    insert into crm_customer (Customer_id,Customer_liaison,Customer_name,Customer_tel,Customer_addr,Customer_state,Customer_user_id,Customer_department)
+    values(#{uuid},#{customer_liaison},#{customer_name},#{customer_tel},#{customer_addr},#{state},#{loginUserID},#{customer_department})
+</insert>
+
+<delete id="customer_del_more" parameterType="map">
+     delete from crm_customer where Customer_id in (${customerids})
+</delete>
+
+<update id="customer_update" parameterType="map">
+     update crm_customer 
+     set Customer_name=#{customer_name},
+     Customer_liaison=#{customer_liaison},
+     Customer_tel=#{customer_tel},
+     Customer_addr=#{customer_addr},
+     Customer_department=#{customer_department}
+     where Customer_id = #{customer_id}
+</update>
+
+<!-- 没有在前台规定，需要原始的大写 -->
+<delete id="customer_del" parameterType="map">
+     delete from crm_customer where Customer_id=#{Customer_id}
+</delete>
+
+
+<!-- 公海客户 -->
+<select id="getPublicCount" parameterType="map" resultType="int">
+    select count(*) from crm_customer
+    <where>
+    (
+    <include refid="customer_select_where"></include>
+    )
+    and Customer_state = 0
+    </where>
+</select>
+<select id="customer_public_list" parameterType="map" resultType="map">
+    select * from crm_customer
+    <where>
+    (
+    <include refid="customer_select_where"></include>
+    )
+    and Customer_state = 0
+    </where>
+</select>
+<update id="customer_private" parameterType="map" >
+    update crm_customer set Customer_state=#{state}
+    ,Customer_user_id=#{loginUserID}
+    where Customer_id = #{Customer_id}
+</update>
+
+<!-- 跟单客户 -->
+<select id="getPrivateCount" parameterType="map" resultType="int">
+    select count(*) from crm_customer 
+    <where>
+    (
+    <include refid="customer_select_where"></include>
+    )
+    and Customer_state=1  and Customer_user_id=#{loginUserID}
+    </where>
+</select>
+<select id="customer_private_list" parameterType="map" resultType="map">
+    select * from crm_customer
+    <where>
+    (
+    <include refid="customer_select_where"></include>
+    )
+    and Customer_state=1  and Customer_user_id=#{loginUserID}
+    </where>
+</select>
+<update id="customer_public"  parameterType="map">
+     update crm_customer set Customer_state=0, Customer_user_id=''
+     where Customer_id=#{Customer_id}
+</update>
+
+<!-- 研发部门 -->
+<select id="getYanfaCount" parameterType="map" resultType="int">
+    select count(*) from crm_customer 
+    <where>
+    (
+    <include refid="customer_select_where"></include>
+    )
+    and Customer_department="研发"
+    </where>
+</select>
+<select id="customer_yanfa_list" parameterType="map" resultType="map">
+    select * from crm_customer
+    <where>
+    (
+    <include refid="customer_select_where"></include>
+    )
+    and Customer_department="研发"
+    </where>
+</select>
+
+<!-- 市场部门 -->
+<select id="getShichangCount" parameterType="map" resultType="int">
+    select count(*) from crm_customer 
+    <where>
+    (
+    <include refid="customer_select_where"></include>
+    )
+    and Customer_department="市场"
+    </where>
+</select>
+<select id="customer_shichang_list" parameterType="map" resultType="map">
+    select * from crm_customer
+    <where>
+    (
+    <include refid="customer_select_where"></include>
+    )
+    and Customer_department="市场"
+    </where>
+</select>
+<!-- 测试部门 -->
+<select id="getCeshiCount" parameterType="map" resultType="int">
+    select count(*) from crm_customer 
+    <where>
+    (
+    <include refid="customer_select_where"></include>
+    )
+    and Customer_department="测试"
+    </where>
+</select>
+<select id="customer_ceshi_list" parameterType="map" resultType="map">
+    select * from crm_customer
+    <where>
+    (
+    <include refid="customer_select_where"></include>
+    )
+    and Customer_department="测试"
+    </where>
+</select>
+<!-- 其他部门 -->
+<select id="getQitaCount" parameterType="map" resultType="int">
+    select count(*) from crm_customer 
+    <where>
+    (
+    <include refid="customer_select_where"></include>
+    )
+    and Customer_department="其他"
+    </where>
+</select>
+<select id="customer_qita_list" parameterType="map" resultType="map">
+    select * from crm_customer
+    <where>
+    (
+    <include refid="customer_select_where"></include>
+    )
+    and Customer_department="其他"
+    </where>
+</select>
+</mapper>

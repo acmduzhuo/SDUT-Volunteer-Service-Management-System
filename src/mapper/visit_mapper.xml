@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="com.st.dao.VisitDao">
+   <insert id="visit_save" parameterType="map">
+   insert into crm_visitlog(Visit_id,Visit_time,Visit_customer_id,Visit_customer_info,
+   Visit_user_id,Visit_payment,Visit_money,Visit_way_id)
+   values(#{uuid},now(),#{customer_id},#{visit_customer_info},
+   #{loginUserID},#{visit_payment},#{visit_money},#{visit_way_id})
+   </insert>
+   
+   <select id="visitlog_list" parameterType="map" resultType="map">
+   select Visit_time,User_realname,User_id,Visit_payment,Visit_money,Visit_customer_info
+   from crm_visitlog a
+   left join crm_user b 
+   on a.Visit_user_id=b.User_id
+   where Visit_customer_id=#{Customer_id} 
+   order by Visit_time desc
+   </select>
+   
+<!--    报表 -->
+     <select id="total_sales" resultType="map">
+     select a.User_realname,sum(b.Visit_money) as money
+     from crm_user as a left join crm_visitlog as b
+     on a.User_id=b.Visit_user_id
+     group by a.User_id
+     </select>
+</mapper>

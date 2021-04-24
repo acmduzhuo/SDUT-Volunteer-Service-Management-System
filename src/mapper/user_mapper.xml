@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="com.st.dao.UserDao">
+<!-- SQL语句 -->
+
+	<select id="test" resultType="string">
+		select now()
+	</select>
+	
+<select id="user_list" resultType="map" parameterType="map">
+	select * from crm_user 
+	where User_id like '%${check}%' or 
+	User_loginname like '%${check}%' or 
+	User_loginpass like '%${check}%' or 
+	User_realname like '%${check}%' or 
+	User_department like '%${check}%' 
+	limit ${start},${limit}
+</select>
+	
+<select id="getCount" resultType="int" parameterType="map">
+	select count(user_id) from crm_user 
+	where user_id like '%${check}%' or 
+	user_loginname like '%${check}%' or
+	User_realname like '%${check}%' or
+	user_department like '%${check}%'
+</select>
+
+<delete id="user_del" parameterType="map">
+   delete from crm_user where User_id=#{User_id}
+</delete>
+
+<insert id="user_save" parameterType="map">
+    insert into crm_user(user_id, user_loginname, user_loginpass, user_realname, user_addr, user_tel, user_sex,user_department)
+    values (#{uuid}, #{user_loginname},#{user_loginpass}, #{user_realname},#{user_addr},#{user_tel},#{user_sex},#{user_department})
+</insert>
+<update id="user_update" parameterType="map">
+   update crm_user 
+   set User_realname=#{user_realname},
+   User_sex=#{user_sex},
+   User_tel=#{user_tel},
+   User_addr=#{user_addr},
+   User_loginpass=#{user_loginpass},
+   User_department=#{user_department}
+   where User_id=#{user_id}
+</update>
+<delete id="user_del_more" parameterType="map">
+    delete from crm_user where User_id in (${userids})
+</delete>
+
+<!-- 登录 -->
+<select id="user_login" resultType="map" parameterType="map">
+	select * from crm_user where User_loginname=#{login_name}
+</select>
+<select id="user_login_guanli" resultType="map" parameterType="map">
+	select * from crm_user where User_loginname=#{login_name}
+</select>
+</mapper>
