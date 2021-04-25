@@ -52,7 +52,7 @@
 	<!-- content -->
 	<div class="sub-main-w3">
 		<form action="guanli" method="post">
-			<h2>Login Now
+			<h2>管理员登录Login Now
 				<i class="fas fa-level-down-alt"></i>
 			</h2>
 			<div class="form-style-agile">

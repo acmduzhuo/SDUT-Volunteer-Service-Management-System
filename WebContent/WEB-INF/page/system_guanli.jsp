@@ -11,13 +11,13 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>企业员工管理系统</title>
+  <title>志愿者管理系统</title>
   <link rel="stylesheet" href="static/layui/css/layui.css">
   </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
   <div class="layui-header">
-    <div class="layui-logo">陈传达企业员工管理系统</div>
+    <div class="layui-logo">志愿者管理系统</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
    <ul class="layui-nav layui-layout-left">
       <li class="layui-nav-item"><a href="javascript:;" url="datatable_page">数据报表</a></li>
@@ -36,14 +36,14 @@
       <li class="layui-nav-item">
         <a href="javascript:;">
           <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-         ${loginuser.User_realname}
+         ${loginuser_guanli.User_realname}
         </a>
 <!--         <dl class="layui-nav-child">
           <dd><a href="">基本资料</a></dd>
           <dd><a href="">安全设置</a></dd>
         </dl> -->
       </li>
-      <li class="layui-nav-item"><a href="login_out">退出</a></li>
+      <li class="layui-nav-item"><a href="guanli">退出</a></li>
     </ul>
   </div>
   
@@ -53,12 +53,10 @@
       <ul class="layui-nav layui-nav-tree"  lay-filter="test">
         <li class="layui-nav-item"><a layui-icon layui-icon-friends href="javascript:;" url="user_page"><span class=" layui-icon layui-icon-friends">&nbsp;&nbsp;&nbsp;</span>志愿者管理界面</a></li>
         <li class="layui-nav-item">
-          <a href="javascript:;"><span class=" layui-icon layui-icon-user">&nbsp;&nbsp;&nbsp;</span>员工管理</a>
+          <a href="javascript:;"><span class=" layui-icon layui-icon-user">&nbsp;&nbsp;&nbsp;</span>志愿活动管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:;"url="customer_public_page">公海员工</a></dd>
-            <dd><a href="javascript:;"url="customer_private_page">跟单员工</a></dd>
-            <dd><a href="javascript:;"url="customer_all_page">全部员工</a></dd>
-            <a href="javascript:;"><span class=" layui-icon layui-icon-user">&nbsp;&nbsp;&nbsp;</span>员工部门列表</a>
+            <dd><a href="javascript:;"url="customer_all_page">全部志愿活动</a></dd>
+            <a href="javascript:;"><span class=" layui-icon layui-icon-user">&nbsp;&nbsp;&nbsp;</span>志愿活动分类列表</a>
                  <dl class="layui-nav-child">
                      <dd><a href="javascript:;"url="customer_yanfa_page">研发部门</a></dd>
                      <dd><a href="javascript:;"url="customer_shichang_page">市场部门</a></dd>

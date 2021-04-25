@@ -76,7 +76,7 @@ public class UserService {
 			//有，匹配密码是否正确     
 			if(params.get("login_pass").equals(((Map)(list.get(0))).get("User_loginpass"))){
 				//正确--登录成功	
-				session.setAttribute("loginuserguanli", user);
+				session.setAttribute("loginuser_guanli", user);
 				return true;
 			}
 		}
