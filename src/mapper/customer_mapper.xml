@@ -115,7 +115,7 @@
     (
     <include refid="customer_select_where"></include>
     )
-    and Customer_department="研发"
+    and Customer_department="助学"
     </where>
 </select>
 <select id="customer_yanfa_list" parameterType="map" resultType="map">
@@ -124,7 +124,7 @@
     (
     <include refid="customer_select_where"></include>
     )
-    and Customer_department="研发"
+    and Customer_department="助学"
     </where>
 </select>
 
@@ -135,7 +135,7 @@
     (
     <include refid="customer_select_where"></include>
     )
-    and Customer_department="市场"
+    and Customer_department="环保"
     </where>
 </select>
 <select id="customer_shichang_list" parameterType="map" resultType="map">
@@ -144,7 +144,7 @@
     (
     <include refid="customer_select_where"></include>
     )
-    and Customer_department="市场"
+    and Customer_department="环保"
     </where>
 </select>
 <!-- 测试部门 -->
@@ -154,7 +154,7 @@
     (
     <include refid="customer_select_where"></include>
     )
-    and Customer_department="测试"
+    and Customer_department="扶贫"
     </where>
 </select>
 <select id="customer_ceshi_list" parameterType="map" resultType="map">
@@ -163,7 +163,7 @@
     (
     <include refid="customer_select_where"></include>
     )
-    and Customer_department="测试"
+    and Customer_department="扶贫"
     </where>
 </select>
 <!-- 其他部门 -->
