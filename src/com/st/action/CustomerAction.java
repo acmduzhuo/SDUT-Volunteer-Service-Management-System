@@ -20,15 +20,21 @@ public class CustomerAction {
 	@Autowired
 	CustomerService cusSer;
 
-	@RequestMapping("/customer_all_page")//从system接受
-	public String customer_all_page() {
+	@RequestMapping("/volunteer_all_page")//从system接受
+	public String volunteer_all_page() {
 
-		return "customer_all_Page";//页面上的文件名
+		return "volunteer/volunteer_all_Page";//页面上的文件名
+	}
+	@RequestMapping("/customer_all_guanli_page")//从system接受
+	public String customer_all_guanli_page() {
+
+		return "customer_all_guanli_Page";//页面上的文件名
 	}
 	@RequestMapping("customer_all_list")
 	@ResponseBody
 	public TableJson customer_list(@RequestParam Map params) {
 		int count=cusSer.getCount(params);
+		System.out.println("11111"+params);
 		return new TableJson(count, cusSer.customer_list(params));
 	}
 	@RequestMapping("customer_save")
@@ -60,9 +66,9 @@ public class CustomerAction {
 	 * 跳转到公海客户信息页面
 	 * @return
 	 */
-	@RequestMapping("/customer_public_page")
-	public String customer_public_page() {
-		return "customer_public_Page";
+	@RequestMapping("/volunteer_public_page")
+	public String volunteer_public_page() {
+		return "volunteer/volunteer_public_Page";
 	}
 	//页面显示数据
 	@RequestMapping("customer_public_list")
@@ -83,9 +89,9 @@ public class CustomerAction {
 	 * 跟单客户
 	 * @return
 	 */
-	@RequestMapping("customer_private_page")
-	public String customer_private_page() {
-		return "customer_private_Page";
+	@RequestMapping("volunteer_private_page")
+	public String volunteer_private_page() {
+		return "volunteer/volunteer_private_Page";
 	}
 	@RequestMapping("customer_private_list")
 	@ResponseBody
@@ -101,12 +107,16 @@ public class CustomerAction {
 	}
 	
 	/**
-	 * 研发部门
+	 * 助学活动
 	 */
 	
-	 @RequestMapping("/customer_yanfa_page")//从system接受 public String
-	 public String customer_yanfa_page() {
-		 return "customer_yanfa_Page";//页面上的文件名 
+	 @RequestMapping("/volunteer_zhuxue_page")//从system接受 public String
+	 public String volunteer_zhuxue_page() {
+		 return "volunteer/volunteer_zhuxue_Page";//页面上的文件名 
+	 }
+	 @RequestMapping("/customer_yanfa_guanli_page")//从system接受 public String
+	 public String customer_yanfa_guanli_page() {
+		 return "customer_yanfa_guanli_Page";//页面上的文件名 
 	 }
 	@RequestMapping("customer_yanfa_list")
 	@ResponseBody
@@ -117,11 +127,15 @@ public class CustomerAction {
 	}
 	
 	/**
-	 * 市场部门
+	 * 环保活动
 	 */
-	 @RequestMapping("/customer_shichang_page")//从system接受 public String
-	 public String customer_shichang_page() {
-		 return "customer_shichang_Page";//页面上的文件名 
+	 @RequestMapping("/volunteer_huanbao_page")//从system接受 public String
+	 public String volunteer_huanbao_page() {
+		 return "volunteer/volunteer_huanbao_Page";//页面上的文件名 
+	 }
+	 @RequestMapping("/customer_shichang_guanli_page")//从system接受 public String
+	 public String customer_shichang_guanli_page() {
+		 return "customer_shichang_guanli_Page";//页面上的文件名 
 	 }
 	@RequestMapping("customer_shichang_list")
 	@ResponseBody
@@ -131,11 +145,15 @@ public class CustomerAction {
 		return new TableJson(count, cusSer.customer_shichang_list(params));
 	}
 	/**
-	 * 测试部门
+	 * 扶贫活动
 	 */
-	 @RequestMapping("/customer_ceshi_page")//从system接受 public String
-	 public String customer_ceshi_page() {
-		 return "customer_ceshi_Page";//页面上的文件名 
+	 @RequestMapping("/volunteer_fupin_page")//从system接受 public String
+	 public String volunteer_fupin_page() {
+		 return "volunteer/volunteer_fupin_Page";//页面上的文件名 
+	 }
+	 @RequestMapping("/customer_ceshi_guanli_page")//从system接受 public String
+	 public String customer_ceshi_guanli_page() {
+		 return "customer_ceshi_guanli_Page";//页面上的文件名 
 	 }
 	@RequestMapping("customer_ceshi_list")
 	@ResponseBody
@@ -147,9 +165,13 @@ public class CustomerAction {
 	/**
 	 * 其他部门
 	 */
-	 @RequestMapping("/customer_qita_page")//从system接受 public String
-	 public String customer_qita_page() {
-		 return "customer_qita_Page";//页面上的文件名 
+	 @RequestMapping("/volunteer_qita_page")//从system接受 public String
+	 public String volunteer_qita_page() {
+		 return "volunteer/volunteer_qita_Page";//页面上的文件名 
+	 }
+	 @RequestMapping("/customer_qita_guanli_page")//从system接受 public String
+	 public String customer_qita_guanli_page() {
+		 return "customer_qita_guanli_Page";//页面上的文件名 
 	 }
 	@RequestMapping("customer_qita_list")
 	@ResponseBody

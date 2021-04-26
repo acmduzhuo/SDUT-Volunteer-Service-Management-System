@@ -54,15 +54,15 @@
         <li class="layui-nav-item">
           <a href="javascript:;"><span class=" layui-icon layui-icon-user">&nbsp;&nbsp;&nbsp;</span>志愿活动列表</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:;"url="customer_public_page">未选择志愿活动</a></dd>
-            <dd><a href="javascript:;"url="customer_private_page">已选择志愿活动</a></dd>
-            <dd><a href="javascript:;"url="customer_all_page">全部志愿活动</a></dd>
+            <dd><a href="javascript:;"url="volunteer_public_page">未选择志愿活动</a></dd>
+            <dd><a href="javascript:;"url="volunteer_private_page">已选择志愿活动</a></dd>
+            <dd><a href="javascript:;"url="volunteer_all_page">全部志愿活动</a></dd>
             <a href="javascript:;"><span class=" layui-icon layui-icon-user">&nbsp;&nbsp;&nbsp;</span>志愿活动分类</a>
                  <dl class="layui-nav-child">
-                     <dd><a href="javascript:;"url="customer_yanfa_page">助学活动</a></dd>
-                     <dd><a href="javascript:;"url="customer_shichang_page">环保活动</a></dd>
-                     <dd><a href="javascript:;"url="customer_ceshi_page">扶贫活动</a></dd>
-                     <dd><a href="javascript:;"url="customer_qita_page">其他活动</a></dd>
+                     <dd><a href="javascript:;"url="volunteer_zhuxue_page">助学活动</a></dd>
+                     <dd><a href="javascript:;"url="volunteer_huanbao_page">环保活动</a></dd>
+                     <dd><a href="javascript:;"url="volunteer_fupin_page">扶贫活动</a></dd>
+                     <dd><a href="javascript:;"url="volunteer_qita_page">其他活动</a></dd>
                  </dl>
           </dl>
         </li>

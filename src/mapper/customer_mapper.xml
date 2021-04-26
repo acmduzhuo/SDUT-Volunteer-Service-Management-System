@@ -108,7 +108,7 @@
      where Customer_id=#{Customer_id}
 </update>
 
-<!-- 研发部门 -->
+<!-- 助学活动 -->
 <select id="getYanfaCount" parameterType="map" resultType="int">
     select count(*) from crm_customer 
     <where>
@@ -128,7 +128,7 @@
     </where>
 </select>
 
-<!-- 市场部门 -->
+<!-- 环保活动 -->
 <select id="getShichangCount" parameterType="map" resultType="int">
     select count(*) from crm_customer 
     <where>
@@ -147,7 +147,7 @@
     and Customer_department="环保"
     </where>
 </select>
-<!-- 测试部门 -->
+<!-- 扶贫活动 -->
 <select id="getCeshiCount" parameterType="map" resultType="int">
     select count(*) from crm_customer 
     <where>
@@ -166,7 +166,7 @@
     and Customer_department="扶贫"
     </where>
 </select>
-<!-- 其他部门 -->
+<!-- 其他活动 -->
 <select id="getQitaCount" parameterType="map" resultType="int">
     select count(*) from crm_customer 
     <where>
