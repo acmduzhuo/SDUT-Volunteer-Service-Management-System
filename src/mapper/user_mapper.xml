@@ -48,11 +48,16 @@
     delete from crm_user where User_id in (${userids})
 </delete>
 
-<!-- 登录 -->
+<!-- 志愿者登录 -->
 <select id="user_login" resultType="map" parameterType="map">
 	select * from crm_user where User_loginname=#{login_name}
 </select>
+<!-- 管理员登录 -->
 <select id="user_login_guanli" resultType="map" parameterType="map">
 	select * from crm_guanli where User_loginname=#{login_name}
+</select>
+<!-- 超级管理员登录 -->
+<select id="user_login_admin" resultType="map" parameterType="map">
+	select * from crm_admin where User_loginname=#{login_name}
 </select>
 </mapper>

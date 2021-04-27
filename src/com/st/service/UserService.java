@@ -83,4 +83,21 @@ public class UserService {
 		return false;
 		//没有，密码不正确
 	}
+	public boolean login_admin(Map params,HttpSession session) {
+		//根据用户名查询数据表中是否有该用户的信息
+		// list代表数据库中查询到的信息
+		List list=user_dao.user_login_admin(params);
+		if(list!=null&&list.size()==1) {
+			Map user=(Map)list.get(0);
+			//有，匹配密码是否正确     
+			if(params.get("login_pass").equals(((Map)(list.get(0))).get("User_loginpass"))){
+				//正确--登录成功	
+				session.setAttribute("loginuser_admin", user);
+				return true;
+			}
+		}
+		System.out.println("密码错误："+params);
+		return false;
+		//没有，密码不正确
+	}
 }

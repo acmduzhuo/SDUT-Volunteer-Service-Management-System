@@ -26,4 +26,5 @@ public interface UserDao {
 	 */
 	List user_login(Map params);
 	List user_login_guanli(Map params);
+	List user_login_admin(Map params);
 }
