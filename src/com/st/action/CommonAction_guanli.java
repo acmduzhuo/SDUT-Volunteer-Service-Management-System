@@ -29,7 +29,6 @@ public class CommonAction_guanli {
 	@RequestMapping("guanli")
 	public String guanli(@RequestParam Map params,HttpSession session) {
 		boolean b=userSer.login_guanli(params,session);
-		System.out.println("№ЬАн"+b);
 		if(b) {
 			return "system_guanli";
 		}else {

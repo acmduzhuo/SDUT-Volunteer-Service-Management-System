@@ -22,7 +22,6 @@ public class VisitAction {
 	@RequestMapping("visit_save")
 	@ResponseBody
 	public void visit_save(@RequestParam Map params,HttpSession session) {
-		//System.out.println(params);
 		visitSer.visit_save(params,session);
 	}
 	
@@ -51,7 +50,6 @@ public class VisitAction {
 	@ResponseBody
 	public Map total_sales() {
 		Map map = visitSer.total_sales();
-		System.out.println(map);
 		return map;
 	}
 }

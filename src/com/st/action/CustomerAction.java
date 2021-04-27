@@ -20,15 +20,15 @@ public class CustomerAction {
 	@Autowired
 	CustomerService cusSer;
 
-	@RequestMapping("/volunteer_all_page")//´Ósystem½ÓÊÜ
+	@RequestMapping("/volunteer_all_page")//ä»systemæ¥å—
 	public String volunteer_all_page() {
 
-		return "volunteer/volunteer_all_Page";//Ò³ÃæÉÏµÄÎÄ¼şÃû
+		return "volunteer/volunteer_all_Page";//é¡µé¢ä¸Šçš„æ–‡ä»¶å
 	}
-	@RequestMapping("/customer_all_guanli_page")//´Ósystem½ÓÊÜ
+	@RequestMapping("/customer_all_guanli_page")//ä»systemæ¥å—
 	public String customer_all_guanli_page() {
 
-		return "customer_all_guanli_Page";//Ò³ÃæÉÏµÄÎÄ¼şÃû
+		return "customer_all_guanli_Page";//é¡µé¢ä¸Šçš„æ–‡ä»¶å
 	}
 	@RequestMapping("customer_all_list")
 	@ResponseBody
@@ -46,7 +46,6 @@ public class CustomerAction {
 	@RequestMapping("customer_del")
 	@ResponseBody
 	public void customer_del(@RequestParam Map params) {
-		System.out.println(params);
 		cusSer.customer_del(params);
 	}
 	@RequestMapping("customer_del_more")
@@ -63,17 +62,17 @@ public class CustomerAction {
 	}
 	
 	/**
-	 * Ìø×ªµ½¹«º£¿Í»§ĞÅÏ¢Ò³Ãæ
+	 * è·³è½¬åˆ°å…¬æµ·å®¢æˆ·ä¿¡æ¯é¡µé¢
 	 * @return
 	 */
 	@RequestMapping("/volunteer_public_page")
 	public String volunteer_public_page() {
 		return "volunteer/volunteer_public_Page";
 	}
-	//Ò³ÃæÏÔÊ¾Êı¾İ
+	//é¡µé¢æ˜¾ç¤ºæ•°æ®
 	@RequestMapping("customer_public_list")
 	@ResponseBody
-	//ajax·µ»ØÊı¾İ
+	//ajaxè¿”å›æ•°æ®
 	public TableJson customer_public_list(@RequestParam Map params) {
 		int count=cusSer.getPublicCount(params);
 		List list=cusSer.customer_public_list(params);
@@ -86,7 +85,7 @@ public class CustomerAction {
 		cusSer.customer_private(params,session);
 	}
 	/**
-	 * ¸úµ¥¿Í»§
+	 * è·Ÿå•å®¢æˆ·
 	 * @return
 	 */
 	@RequestMapping("volunteer_private_page")
@@ -107,16 +106,16 @@ public class CustomerAction {
 	}
 	
 	/**
-	 * ÖúÑ§»î¶¯
+	 * åŠ©å­¦æ´»åŠ¨
 	 */
 	
-	 @RequestMapping("/volunteer_zhuxue_page")//´Ósystem½ÓÊÜ public String
+	 @RequestMapping("/volunteer_zhuxue_page")//ä»systemæ¥å— public String
 	 public String volunteer_zhuxue_page() {
-		 return "volunteer/volunteer_zhuxue_Page";//Ò³ÃæÉÏµÄÎÄ¼şÃû 
+		 return "volunteer/volunteer_zhuxue_Page";//é¡µé¢ä¸Šçš„æ–‡ä»¶å 
 	 }
-	 @RequestMapping("/customer_yanfa_guanli_page")//´Ósystem½ÓÊÜ public String
+	 @RequestMapping("/customer_yanfa_guanli_page")//ä»systemæ¥å— public String
 	 public String customer_yanfa_guanli_page() {
-		 return "customer_yanfa_guanli_Page";//Ò³ÃæÉÏµÄÎÄ¼şÃû 
+		 return "customer_yanfa_guanli_Page";//é¡µé¢ä¸Šçš„æ–‡ä»¶å 
 	 }
 	@RequestMapping("customer_yanfa_list")
 	@ResponseBody
@@ -127,15 +126,15 @@ public class CustomerAction {
 	}
 	
 	/**
-	 * »·±£»î¶¯
+	 * ç¯ä¿æ´»åŠ¨
 	 */
-	 @RequestMapping("/volunteer_huanbao_page")//´Ósystem½ÓÊÜ public String
+	 @RequestMapping("/volunteer_huanbao_page")//ä»systemæ¥å— public String
 	 public String volunteer_huanbao_page() {
-		 return "volunteer/volunteer_huanbao_Page";//Ò³ÃæÉÏµÄÎÄ¼şÃû 
+		 return "volunteer/volunteer_huanbao_Page";//é¡µé¢ä¸Šçš„æ–‡ä»¶å 
 	 }
-	 @RequestMapping("/customer_shichang_guanli_page")//´Ósystem½ÓÊÜ public String
+	 @RequestMapping("/customer_shichang_guanli_page")//ä»systemæ¥å— public String
 	 public String customer_shichang_guanli_page() {
-		 return "customer_shichang_guanli_Page";//Ò³ÃæÉÏµÄÎÄ¼şÃû 
+		 return "customer_shichang_guanli_Page";//é¡µé¢ä¸Šçš„æ–‡ä»¶å 
 	 }
 	@RequestMapping("customer_shichang_list")
 	@ResponseBody
@@ -145,15 +144,15 @@ public class CustomerAction {
 		return new TableJson(count, cusSer.customer_shichang_list(params));
 	}
 	/**
-	 * ·öÆ¶»î¶¯
+	 * æ‰¶è´«æ´»åŠ¨
 	 */
-	 @RequestMapping("/volunteer_fupin_page")//´Ósystem½ÓÊÜ public String
+	 @RequestMapping("/volunteer_fupin_page")//ä»systemæ¥å— public String
 	 public String volunteer_fupin_page() {
-		 return "volunteer/volunteer_fupin_Page";//Ò³ÃæÉÏµÄÎÄ¼şÃû 
+		 return "volunteer/volunteer_fupin_Page";//é¡µé¢ä¸Šçš„æ–‡ä»¶å 
 	 }
-	 @RequestMapping("/customer_ceshi_guanli_page")//´Ósystem½ÓÊÜ public String
+	 @RequestMapping("/customer_ceshi_guanli_page")//ä»systemæ¥å— public String
 	 public String customer_ceshi_guanli_page() {
-		 return "customer_ceshi_guanli_Page";//Ò³ÃæÉÏµÄÎÄ¼şÃû 
+		 return "customer_ceshi_guanli_Page";//é¡µé¢ä¸Šçš„æ–‡ä»¶å 
 	 }
 	@RequestMapping("customer_ceshi_list")
 	@ResponseBody
@@ -163,15 +162,15 @@ public class CustomerAction {
 		return new TableJson(count, cusSer.customer_ceshi_list(params));
 	}
 	/**
-	 * ÆäËû²¿ÃÅ
+	 * å…¶ä»–éƒ¨é—¨
 	 */
-	 @RequestMapping("/volunteer_qita_page")//´Ósystem½ÓÊÜ public String
+	 @RequestMapping("/volunteer_qita_page")//ä»systemæ¥å— public String
 	 public String volunteer_qita_page() {
-		 return "volunteer/volunteer_qita_Page";//Ò³ÃæÉÏµÄÎÄ¼şÃû 
+		 return "volunteer/volunteer_qita_Page";//é¡µé¢ä¸Šçš„æ–‡ä»¶å 
 	 }
-	 @RequestMapping("/customer_qita_guanli_page")//´Ósystem½ÓÊÜ public String
+	 @RequestMapping("/customer_qita_guanli_page")//ä»systemæ¥å— public String
 	 public String customer_qita_guanli_page() {
-		 return "customer_qita_guanli_Page";//Ò³ÃæÉÏµÄÎÄ¼şÃû 
+		 return "customer_qita_guanli_Page";//é¡µé¢ä¸Šçš„æ–‡ä»¶å 
 	 }
 	@RequestMapping("customer_qita_list")
 	@ResponseBody

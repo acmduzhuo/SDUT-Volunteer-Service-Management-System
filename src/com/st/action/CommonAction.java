@@ -29,7 +29,6 @@ public class CommonAction {
 	@RequestMapping("loginaction")
 	public String logincation(@RequestParam Map params,HttpSession session) {
 		boolean b=userSer.login(params,session);
-		System.out.println("”√ªß"+b);
 		if(b) {
 			return "system";
 		}else {

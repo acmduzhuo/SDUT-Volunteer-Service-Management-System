@@ -34,7 +34,6 @@ public class UserAction {
 	@RequestMapping("user_list")
 	@ResponseBody
 	public TableJson user_list(@RequestParam Map params) {
-//		System.out.println(params);
 		//将参数传递给SQL语句
 		//		service调用dao--mapper--sql
 		//查询结果的所有数据量
@@ -46,7 +45,6 @@ public class UserAction {
 	@ResponseBody
 	public void user_del(@RequestParam Map params) {
 		//删除用户信息
-		//System.out.println(params);
 		user_ser.user_del(params);
 	}
 	@RequestMapping("user_save")
