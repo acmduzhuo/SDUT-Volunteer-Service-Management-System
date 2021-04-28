@@ -36,7 +36,7 @@
       <li class="layui-nav-item">
         <a href="javascript:;">
           <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-         ${loginuser_guanli.User_realname}
+         ${loginuser_admin.User_realname}
         </a>
 <!--         <dl class="layui-nav-child">
           <dd><a href="">基本资料</a></dd>
@@ -52,6 +52,7 @@
       <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
       <ul class="layui-nav layui-nav-tree"  lay-filter="test">
         <li class="layui-nav-item"><a layui-icon layui-icon-friends href="javascript:;" url="user_page"><span class=" layui-icon layui-icon-friends">&nbsp;&nbsp;&nbsp;</span>志愿者管理界面</a></li>
+        <li class="layui-nav-item"><a layui-icon layui-icon-friends href="javascript:;" url="guanli_page"><span class=" layui-icon layui-icon-username">&nbsp;&nbsp;&nbsp;</span>管理员界面</a></li>
         <li class="layui-nav-item">
           <a href="javascript:;"><span class=" layui-icon layui-icon-user">&nbsp;&nbsp;&nbsp;</span>志愿活动管理</a>
           <dl class="layui-nav-child">
