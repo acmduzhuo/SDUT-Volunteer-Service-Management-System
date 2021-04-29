@@ -26,19 +26,19 @@
 <th lay-data="{type:'checkbox'}"></th>
      <th lay-data="{type:'numbers'}">行号</th>
       <th lay-data="{field:'Customer_id', sort: true}">ID</th>
-      <th lay-data="{field:'Customer_name',sort: true }">业绩公司</th>
-      <th lay-data="{field:'Customer_liaison',sort: true}">员工姓名</th>
-      <th lay-data="{field:'Customer_department',sort: true}">部门</th>
+      <th lay-data="{field:'Customer_name',sort: true }">活动名称</th>
+      <th lay-data="{field:'Customer_liaison',sort: true}">负责人</th>
+      <th lay-data="{field:'Customer_department',sort: true}">活动类型</th>
       <th lay-data="{field:'Customer_tel',sort: true}">手机号码</th>
       <th lay-data="{field:'Customer_state', sort: true,
       templet:function(data){
       if(data.Customer_state==0){
-          return '公海员工';
+          return '未选择活动';
       }else{
-          return '私有员工';
+          return '已选择活动;
       }
       }}">状态</th>
-      <th lay-data="{field:'Customer_addr', sort: true}">住址</th>
+      <th lay-data="{field:'Customer_addr', sort: true}">活动地点</th>
     </tr>
   </thead>
 </table>

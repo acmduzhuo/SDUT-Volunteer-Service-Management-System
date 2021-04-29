@@ -66,7 +66,7 @@
                  </dl>
           </dl>
         </li>
-        <li class="layui-nav-item"><a layui-icon layui-icon-friends href="javascript:;" url="user_page"><span class=" layui-icon layui-icon-friends">&nbsp;&nbsp;&nbsp;</span>志愿时长管理界面</a></li>
+        <li class="layui-nav-item"><a layui-icon layui-icon-friends href="javascript:;" url="time_page"><span class=" layui-icon layui-icon-friends">&nbsp;&nbsp;&nbsp;</span>志愿时长管理界面</a></li>
       </ul>
     </div>
   </div>

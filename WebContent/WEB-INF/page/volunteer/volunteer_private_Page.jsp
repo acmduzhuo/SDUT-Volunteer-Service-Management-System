@@ -21,30 +21,30 @@
 	<button class="layui-btn layui-icon layui-icon-refresh" lay-event="refresh">刷新</button>
 </script>
 <script type="text/html" id="rowtoolbar">
-	<a class="layui-btn layui-btn-xs layui-icon layui-icon-edit" lay-event="public">放弃跟单</a>
-    <a class="layui-btn layui-btn-xs layui-icon layui-icon-edit layui-bg-blue" lay-event="visit">评价</a>
-    <a class="layui-btn layui-btn-xs layui-icon layui-icon-edit layui-bg-blue" lay-event="visitlog">评价记录</a>
+	<a class="layui-btn layui-btn-xs layui-icon layui-icon-edit" lay-event="public">放弃活动</a>
+    <a class="layui-btn layui-btn-xs layui-icon layui-icon-edit layui-bg-blue" lay-event="visit">填报</a>
+    <a class="layui-btn layui-btn-xs layui-icon layui-icon-edit layui-bg-blue" lay-event="visitlog">填报记录</a>
 </script>
 <table class="layui-table" lay-data="{url:'customer_private_list', page:true, id:'customertable_id',toolbar:'#toolbar'}" lay-filter="customertable">
   <thead>
     <tr>
-     <th lay-data="{type:'checkbox'}"></th>
+<th lay-data="{type:'checkbox'}"></th>
      <th lay-data="{type:'numbers'}">行号</th>
-     <!--  <th lay-data="{field:'Customer_id', sort: true}">ID</th> -->
-      <th lay-data="{field:'Customer_name',sort: true }">业绩公司</th>
-      <th lay-data="{field:'Customer_liaison',sort: true}">员工姓名</th>
-      <th lay-data="{field:'Customer_department',sort: true}">部门</th>
-      <th lay-data="{field:'Customer_tel',sort: true }">手机号码</th>
-           <th lay-data="{field:'Customer_state', sort: true,
+      <th lay-data="{field:'Customer_id', sort: true}">ID</th>
+      <th lay-data="{field:'Customer_name',sort: true }">活动名称</th>
+      <th lay-data="{field:'Customer_liaison',sort: true}">负责人</th>
+      <th lay-data="{field:'Customer_department',sort: true}">活动类型</th>
+      <th lay-data="{field:'Customer_tel',sort: true}">手机号码</th>
+      <th lay-data="{field:'Customer_state', sort: true,
       templet:function(data){
       if(data.Customer_state==0){
-          return '公海员工'
+          return '未选择活动';
       }else{
-          return '私有员工';
+          return '已选择活动';
       }
       }}">状态</th>
-      <th lay-data="{field:'Customer_addr', sort: true}">住址</th>
-      <th lay-data="{toolbar:'#rowtoolbar',width:300}">操作</th>
+      <th lay-data="{field:'Customer_addr', sort: true}">活动地点</th>
+       <th lay-data="{toolbar:'#rowtoolbar',width:300}">操作</th>
     </tr>
   </thead>
 </table>
@@ -197,13 +197,13 @@ table.on('tool(customertable)', function(obj) {
 		location.href="visitlog_page?Customer_id="+data.Customer_id;
 		break;
 	case 'public':
-		layer.confirm("确定要放弃对"+data.Customer_liaison+"跟单吗？",{
+		layer.confirm("确定要放弃"+data.Customer_liaison+"这一活动吗？",{
 			btn:['确定','取消']
 		},function(){
 			//点击第一个按钮执行方法
 			$.post("customer_public",data,function(d){
 				//执行成功表格重新刷新
-				layer.msg(data.Customer_liaison+"已成为公海员工",{
+				layer.msg("已放弃"+data.Customer_liaison+"该活动",{
 					icon:6,
 					time:2000
 			        });

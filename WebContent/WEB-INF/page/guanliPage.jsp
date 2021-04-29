@@ -36,7 +36,7 @@
       <th lay-data="{field:'User_loginname',sort: true }">登录名</th>
       <th lay-data="{field:'User_loginpass',sort: true}">登录密码</th>
       <th lay-data="{field:'User_realname', sort: true}">真实姓名</th>
-      <th lay-data="{field:'User_department', sort: true}">部门</th>
+      <!-- <th lay-data="{field:'User_department', sort: true}">部门</th> -->
       <th lay-data="{field:'User_tel',sort: true }">手机号码</th>
       <th lay-data="{field:'User_addr', sort: true}">住址</th>
       <th lay-data="{field:'User_sex', sort: true}">性别</th>

@@ -96,6 +96,7 @@
 	</form>
 	
 	<form  hidden id="update_h_div" class="layui-form "  lay-filter="timeupdate">
+		<input type='hidden' name="visit_id"/>
 		<div class="layui-form-item">
 			<div class="layui-inline"">
 				<label class="layui-form-label">是否参与</label>
@@ -218,6 +219,7 @@ table.on('tool(timetable)', function(obj) {
 	switch (obj.event) {
 	case 'update':
 		form.val("timeupdate",{
+			'visit_id': data.Visit_id,
 			'visit_payment':data.Visit_payment,
 			'visit_money':data.Visit_money
 		});
