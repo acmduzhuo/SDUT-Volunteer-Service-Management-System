@@ -63,14 +63,6 @@
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<div class="layui-inline">
-				<label class="layui-form-label">部门</label>
-				<div class="layui-input-inline">
-					<input  name="user_department" type="text" autocomplete="off" class="layui-input kong" lay-verify="required">
-				</div>
-			</div>
-		</div>
-		<div class="layui-form-item">
 			<div class="layui-inline"">
 				<label class="layui-form-label">性别</label>
 				<div class="layui-input-block">
@@ -112,14 +104,6 @@
 				<label class="layui-form-label">真实姓名</label>
 				<div class="layui-input-inline">
 					<input  id="user_realname" name="user_realname" type="text" autocomplete="off" class="layui-input kong" lay-verify="required">
-				</div>
-			</div>
-		</div>
-				<div class="layui-form-item">
-			<div class="layui-inline">
-				<label class="layui-form-label">部门</label>
-				<div class="layui-input-inline">
-					<input  name="user_department" type="text" autocomplete="off" class="layui-input kong" lay-verify="required">
 				</div>
 			</div>
 		</div>
@@ -178,9 +162,9 @@ table.on('toolbar(usertable)', function(obj) {
 			layer.alert("请先选中数据，然后操作。");
 			return false;
 		}else if(data.length==1){
-			msg="确定要删除"+data[0].User_realname+"账户的信息吗？";
+			msg="确定要删除"+data[0].User_realname+"志愿者的信息吗？";
 		}else{
-			msg="确定要删除"+data[0].User_realname+"等，"+data.length+"条账户的信息吗？";
+			msg="确定要删除"+data[0].User_realname+"等，"+data.length+"条志愿者的信息吗？";
 		}
 		
 	
@@ -240,13 +224,13 @@ table.on('toolbar(usertable)', function(obj) {
 		//弹出对话框，供客户填写数据
 		layer.open({
 					type : 1,
-					title : '新增管理员信息',
+					title : '新增志愿者信息',
 					content : $("#h_div"),
 					btn : [ '确定', '取消' ],
 					btn1 : function() {
 						$.post("user_save",form.val("usersave"), function() {
 							layer.closeAll();
-							layer.alert('默认密码:123456',{title:'新增用户信息'});
+							layer.alert('默认密码:123456',{title:'新增志愿者信息'});
 							table.reload('usertable_id');
 						});
 					},
@@ -280,13 +264,13 @@ table.on('tool(usertable)', function(obj) {
 		//弹出对话框
 		layer.open({
 					type : 1,
-					title : '编辑用户信息',
+					title : '编辑志愿者信息',
 					content : $("#update_h_div"),
 					btn : [ '确定', '取消' ],
 					btn1 : function() {
 						$.post("user_update",form.val("userupdate"), function() {
 							layer.closeAll();
-							layer.msg(data.User_realname+'账户信息修改成功！',{icon:6,time:2000});
+							layer.msg(data.User_realname+'志愿者信息修改成功！',{icon:6,time:2000});
 							table.reload('usertable_id');
 						});
 					},
@@ -300,7 +284,7 @@ table.on('tool(usertable)', function(obj) {
 	case 'del':
 		//编写业务代码
 		//alert(data.user_realname);
-		layer.confirm("确定要删除"+data.User_realname+"账户的信息吗？",{
+		layer.confirm("确定要删除"+data.User_realname+"志愿者的信息吗？",{
 			btn:['确定','取消']
 		
 		},function(){

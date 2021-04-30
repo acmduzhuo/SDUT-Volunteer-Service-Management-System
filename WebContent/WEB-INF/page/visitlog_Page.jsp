@@ -23,7 +23,7 @@
       <h3 class="layui-timeline-title">${log.User_realname}--${log.Visit_time}</h3>
       <p>
         <c:if test="${log.Visit_payment==1}">
-              业绩：${log.Visit_money}
+              志愿时长：${log.Visit_money}小时
         </c:if>
         <br>留言：
         <br>&nbsp;&nbsp;&nbsp;${log.Visit_customer_info}

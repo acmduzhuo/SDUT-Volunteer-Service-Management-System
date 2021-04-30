@@ -58,9 +58,9 @@
             <dd><a href="javascript:;"url="customer_all_guanli_page">全部志愿活动</a></dd>
             <a href="javascript:;"><span class=" layui-icon layui-icon-user">&nbsp;&nbsp;&nbsp;</span>志愿活动分类列表</a>
                  <dl class="layui-nav-child">
-                     <dd><a href="javascript:;"url="customer_yanfa_guanli_page">研发部门</a></dd>
-                     <dd><a href="javascript:;"url="customer_shichang_guanli_page">市场部门</a></dd>
-                     <dd><a href="javascript:;"url="customer_ceshi_guanli_page">测试部门</a></dd>
+                     <dd><a href="javascript:;"url="customer_yanfa_guanli_page">助学活动</a></dd>
+                     <dd><a href="javascript:;"url="customer_shichang_guanli_page">环保活动</a></dd>
+                     <dd><a href="javascript:;"url="customer_ceshi_guanli_page">扶贫活动</a></dd>
                      <dd><a href="javascript:;"url="customer_qita_guanli_page">其他部门</a></dd>
                  </dl>
           </dl>

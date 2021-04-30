@@ -52,7 +52,7 @@
 <form  hidden id="h_div" class="layui-form "  lay-filter="customersave">
 		<div class="layui-form-item" id="phone">
 			<div class="layui-inline">
-			<label class="layui-form-label">业绩公司</label>
+			<label class="layui-form-label">活动名称</label>
 			<div class="layui-input-inline">
 				<input name="customer_name" type="text" class="layui-input kong"  lay-verify="required">
 			</div>
@@ -60,7 +60,7 @@
 		</div>
 		<div class="layui-form-item">
 			<div class="layui-inline">
-				<label class="layui-form-label">员工姓名</label>
+				<label class="layui-form-label">负责人</label>
 				<div class="layui-input-inline">
 					<input name="customer_liaison" type="text"  class="layui-input kong" lay-verify="required">
 				</div>
@@ -76,7 +76,15 @@
 		</div>
 		<div class="layui-form-item">
 			<div class="layui-inline">
-				<label class="layui-form-label">所在地</label>
+				<label class="layui-form-label">活动类型</label>
+				<div class="layui-input-inline">
+					<input name="customer_department" type="text" class="layui-input kong"  lay-verify="required">
+				</div>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">活动地点</label>
 				<div class="layui-input-inline">
 					<input name="customer_addr"type="text"  class="city_input layui-input kong" lay-verify="required"/>
 				</div>
@@ -88,7 +96,7 @@
 	    <input type='hidden' name="customer_id"/>
 		<div class="layui-form-item">
 			<div class="layui-inline">
-			<label class="layui-form-label">业绩公司</label>
+			<label class="layui-form-label">活动名称</label>
 			<div class="layui-input-inline">
 				<input name="customer_name" type="text" class="layui-input kong"  lay-verify="required">
 			</div>
@@ -96,7 +104,7 @@
 		</div>
 		<div class="layui-form-item">
 			<div class="layui-inline">
-				<label class="layui-form-label">员工姓名</label>
+				<label class="layui-form-label">负责人</label>
 				<div class="layui-input-inline">
 					<input name="customer_liaison" type="text" class="layui-input kong" lay-verify="required">
 				</div>
@@ -104,7 +112,7 @@
 		</div>
 		<div class="layui-form-item">
 			<div class="layui-inline">
-				<label class="layui-form-label">部门</label>
+				<label class="layui-form-label">活动类型</label>
 				<div class="layui-input-inline">
 					<input name="customer_department"  type="text" class="layui-input kong" lay-verify="required|phone">
 				</div>
@@ -120,7 +128,7 @@
 		</div>
 		<div class="layui-form-item">
 			<div class="layui-inline">
-				<label class="layui-form-label">所在地</label>
+				<label class="layui-form-label">活动地点</label>
 				<div class="layui-input-inline">
 					<input name="customer_addr"type="text"  class="city_input layui-input kong"  lay-verify="required"/>
 				</div>
@@ -149,9 +157,9 @@ table.on('toolbar(customertable)', function(obj) {
 			layer.alert("请先选中数据，然后操作。");
 			return false;
 		}else if(data.length==1){
-			msg="确定要删除"+data[0].Customer_liaison+"账户的信息吗？";
+			msg="确定要删除"+data[0].Customer_liaison+"活动的信息吗？";
 		}else{
-			msg="确定要删除"+data[0].Customer_liaison+"等，"+data.length+"条账户的信息吗？";
+			msg="确定要删除"+data[0].Customer_liaison+"等，"+data.length+"条活动的信息吗？";
 		}
 		layer.confirm(msg,{
 			btn:['确定','取消']
@@ -166,7 +174,7 @@ table.on('toolbar(customertable)', function(obj) {
 			$.post("customer_del_more",{"customerids":customerids}, function(d){
 				//删除后关闭对话框
 				layer.closeAll();
-				layer.msg('员工删除成功。');
+				layer.msg('活动删除成功。');
 				//表格重新加载
 				table.reload('customertable_id');
 			});
@@ -206,13 +214,13 @@ table.on('toolbar(customertable)', function(obj) {
 		//弹出对话框，供客户填写数据
 		layer.open({
 					type : 1,
-					title : '新增员工信息',
+					title : '新增活动信息',
 					content : $("#h_div"),
 					btn : [ '确定', '取消' ],
 					btn1 : function() {
 						$.post("customer_save",form.val("customersave"), function() {
 							layer.closeAll();
-							layer.msg('员工信息保存成功',{icon:6, time:2000});
+							layer.msg('活动信息保存成功',{icon:6, time:2000});
 							table.reload('customertable_id');
 						});
 					},
@@ -244,13 +252,13 @@ table.on('tool(customertable)', function(obj) {
 		//弹出对话框
 		layer.open({
 					type : 1,
-					title : '编辑员工信息',
+					title : '编辑活动信息',
 					content : $("#update_h_div"),
 					btn : [ '确定', '取消' ],
 					btn1 : function() {
 						$.post("customer_update",form.val("customerupdate"), function() {
 							layer.closeAll();
-							layer.msg(data.Customer_liaison+'员工信息修改成功！',{icon:6,time:2000});
+							layer.msg(data.Customer_liaison+'活动信息修改成功！',{icon:6,time:2000});
 							table.reload('customertable_id');
 						});
 					},
@@ -264,7 +272,7 @@ table.on('tool(customertable)', function(obj) {
 	case 'del':
 		//编写业务代码
 		//alert(data.customer_realname);
-		layer.confirm("确定要删除"+data.Customer_liaison+"账户的信息吗？",{
+		layer.confirm("确定要删除"+data.Customer_liaison+"活动的信息吗？",{
 			btn:['确定','取消']
 		
 		},function(){
@@ -274,7 +282,7 @@ table.on('tool(customertable)', function(obj) {
 				//删除后关闭对话框
 				layer.closeAll();
 				//表格重新加载
-				layer.msg(data.Customer_liaison+'员工信息删除成功！',{icon:6,time:2000});
+				layer.msg(data.Customer_liaison+'活动信息删除成功！',{icon:6,time:2000});
 				table.reload('customertable_id');
 			});
 			//后台执行删除SQL语句

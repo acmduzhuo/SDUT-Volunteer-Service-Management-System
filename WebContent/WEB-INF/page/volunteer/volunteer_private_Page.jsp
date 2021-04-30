@@ -97,13 +97,13 @@
 		<div class="layui-form-item" id="phone">
 		<div class="layui-inline">
 			
-	      <label class="layui-form-label">是否合格</label>
+	      <label class="layui-form-label">是否参与</label>
 	      <div class="layui-input-block">
 	          <input type="checkbox" lay-text="是|否" name="visit_payment" lay-skin="switch" lay-filter="payment">
 	      </div>
 	    </div>
 	      <div class="layui-inline">
-				<label class="layui-form-label">业绩</label>
+				<label class="layui-form-label">参加时长</label>
 				<div class="layui-input-inline">
 					<input name="visit_money" type="text" autocomplete="off" 
 					      class="layui-input kong" readonly lay-verify="required">
@@ -223,7 +223,7 @@ table.on('tool(customertable)', function(obj) {
 		layer.open({
 					type : 1,
 					area: ['500px', '300px'],
-					title : '回访记录',
+					title : '志愿活动填报',
 					content : $("#visit_div"),
 					btn : [ '确定', '取消' ],
 					btn1 : function() {
@@ -232,7 +232,7 @@ table.on('tool(customertable)', function(obj) {
 						$.post("visit_save",formdata, 
 						function() {
 							layer.closeAll();//关闭所有对话框
-							layer.msg('回访信息保存成功！',
+							layer.msg('填报信息保存成功！',
 								  {
 								      icon:1,//图标序号
 								      time:2000
