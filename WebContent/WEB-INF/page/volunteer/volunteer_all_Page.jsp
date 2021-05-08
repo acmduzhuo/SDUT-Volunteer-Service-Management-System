@@ -34,7 +34,7 @@
       if(data.Customer_state==0){
           return '未选择活动';
       }else{
-          return '已选择活动;
+          return '已选择活动';
       }
       }}">状态</th>
       <th lay-data="{field:'Customer_addr', sort: true}">活动地点</th>
