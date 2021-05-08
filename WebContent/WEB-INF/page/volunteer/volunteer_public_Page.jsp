@@ -10,6 +10,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- <script type="text/javascript">
+window.onload = function() {
+	var arr = $('tbody').find('tr').toArray();// 把三个div放进数组里面
+	var temp;
+	temp = arr[0];
+	arr[0] = arr[1];
+	arr[1] = temp;
+	$('tbody').html(arr)
+}
+</script> -->
 </head>
 <link rel="stylesheet" href="static/layui/css/layui.css">
 <body>
