@@ -31,9 +31,10 @@ window.onload = function() {
 	<button class="layui-btn layui-icon layui-icon-refresh" lay-event="refresh">刷新</button>
 </script>
 <script type="text/html" id="rowtoolbar">
-    <a class="layui-btn layui-btn-xs layui-icon layui-icon-edit layui-bg-blue" lay-event="private">选择</a>
+    <a class="layui-btn layui-btn-xs layui-icon layui-icon-edit layui-bg-blue" lay-event="private">选择<i class="layui-icon layui-icon-fire" style="font-size: 30px; color: red;"></i></a>
     <a class="layui-btn layui-btn-xs layui-icon layui-icon-edit layui-bg-blue" lay-event="visitlog">填报记录</a>
 </script>
+<!-- <img src="static/img/hot.png"/> -->
 <table class="layui-table" lay-data="{url:'customer_public_list', page:true, id:'customertable_id',toolbar:'#toolbar'}" lay-filter="customertable">
   <thead>
     <tr>

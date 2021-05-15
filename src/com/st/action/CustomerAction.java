@@ -76,6 +76,9 @@ public class CustomerAction {
 	public TableJson customer_public_list(@RequestParam Map params) {
 		int count=cusSer.getPublicCount(params);
 		List list=cusSer.customer_public_list(params);
+		System.out.println(list);
+//		list.add(list.get(0));
+//		list.remove(0);
 		return new TableJson(count,list);
 		//(count,cusSer.customer_public_list(params));
 	}
