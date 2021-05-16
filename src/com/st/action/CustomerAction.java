@@ -76,7 +76,7 @@ public class CustomerAction {
 	public TableJson customer_public_list(@RequestParam Map params) {
 		int count=cusSer.getPublicCount(params);
 		List list=cusSer.customer_public_list(params);
-		System.out.println(list);
+//		System.out.println(list);
 //		list.add(list.get(0));
 //		list.remove(0);
 		return new TableJson(count,list);
@@ -85,6 +85,7 @@ public class CustomerAction {
 	@RequestMapping("customer_private")
 	@ResponseBody
 	public void customer_private(@RequestParam Map params,HttpSession session) {
+		System.out.println(session);
 		cusSer.customer_private(params,session);
 	}
 	/**

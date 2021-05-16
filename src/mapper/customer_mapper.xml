@@ -81,6 +81,7 @@
 <update id="customer_private" parameterType="map" >
     update crm_customer set Customer_state=#{state}
     ,Customer_user_id=#{loginUserID}
+    ,Customer_user_name=(select User_realname from crm_user where User_id = #{loginUserID})
     where Customer_id = #{Customer_id}
 </update>
 
@@ -104,7 +105,7 @@
     </where>
 </select>
 <update id="customer_public"  parameterType="map">
-     update crm_customer set Customer_state=0, Customer_user_id=''
+     update crm_customer set Customer_state=0, Customer_user_id='', Customer_user_name=''
      where Customer_id=#{Customer_id}
 </update>
 
