@@ -34,7 +34,6 @@ public class CustomerAction {
 	@ResponseBody
 	public TableJson customer_list(@RequestParam Map params) {
 		int count=cusSer.getCount(params);
-		System.out.println("11111"+params);
 		return new TableJson(count, cusSer.customer_list(params));
 	}
 	@RequestMapping("customer_save")
@@ -85,7 +84,6 @@ public class CustomerAction {
 	@RequestMapping("customer_private")
 	@ResponseBody
 	public void customer_private(@RequestParam Map params,HttpSession session) {
-		System.out.println(session);
 		cusSer.customer_private(params,session);
 	}
 	/**

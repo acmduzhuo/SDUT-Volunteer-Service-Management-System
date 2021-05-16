@@ -53,8 +53,10 @@ window.onload = function() {
           return '已选择活动';
       }
       }}">状态</th>
+      <th lay-data="{field:'Customer_max', sort: true}">限额人数</th>
+      <th lay-data="{field:'Customer_number', sort: true}">已参加人数</th>
       <th lay-data="{field:'Customer_addr', sort: true}">活动地点</th>
-       <th lay-data="{toolbar:'#rowtoolbar',width:300}">操作</th>
+       <th lay-data="{toolbar:'#rowtoolbar',width:200}">操作</th>
     </tr>
   </thead>
 </table>

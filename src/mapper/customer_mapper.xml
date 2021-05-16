@@ -59,14 +59,14 @@
 </delete>
 
 
-<!-- 公海客户 -->
+<!-- 未选择活动 -->
 <select id="getPublicCount" parameterType="map" resultType="int">
     select count(*) from crm_customer
     <where>
     (
     <include refid="customer_select_where"></include>
     )
-    and Customer_state = 0
+    and Customer_max - Customer_number > 0
     </where>
 </select>
 <select id="customer_public_list" parameterType="map" resultType="map">
@@ -75,24 +75,25 @@
     (
     <include refid="customer_select_where"></include>
     )
-    and Customer_state = 0
+    and Customer_max - Customer_number > 0
     </where>
+    limit ${start},${limit}
 </select>
 <update id="customer_private" parameterType="map" >
-    update crm_customer set Customer_state=#{state}
-    ,Customer_user_id=#{loginUserID}
-    ,Customer_user_name=(select User_realname from crm_user where User_id = #{loginUserID})
+    update crm_customer set Customer_number= Customer_number + 1
+    ,Customer_user_id=concat(Customer_user_id,' ',#{loginUserID})
+    ,Customer_user_name=concat(Customer_user_name,' ',(select User_realname from crm_user where User_id = #{loginUserID}))
     where Customer_id = #{Customer_id}
 </update>
 
-<!-- 跟单客户 -->
+<!-- 已选择活动 -->
 <select id="getPrivateCount" parameterType="map" resultType="int">
     select count(*) from crm_customer 
     <where>
     (
     <include refid="customer_select_where"></include>
     )
-    and Customer_state=1  and Customer_user_id=#{loginUserID}
+    and INSTR(Customer_user_id,concat(' ',#{loginUserID})) != 0
     </where>
 </select>
 <select id="customer_private_list" parameterType="map" resultType="map">
@@ -101,7 +102,7 @@
     (
     <include refid="customer_select_where"></include>
     )
-    and Customer_state=1  and Customer_user_id=#{loginUserID}
+    and INSTR(Customer_user_id,concat(' ',#{loginUserID})) != 0
     </where>
 </select>
 <update id="customer_public"  parameterType="map">

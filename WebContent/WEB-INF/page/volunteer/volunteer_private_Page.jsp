@@ -43,6 +43,7 @@
           return '已选择活动';
       }
       }}">状态</th>
+      <th lay-data="{field:'Customer_user_name', sort: true}">参与人员</th>
       <th lay-data="{field:'Customer_addr', sort: true}">活动地点</th>
        <th lay-data="{toolbar:'#rowtoolbar',width:300}">操作</th>
     </tr>
