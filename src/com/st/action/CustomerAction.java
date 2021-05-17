@@ -1,6 +1,7 @@
 package com.st.action;
 
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.st.bean.TableJson;
 import com.st.service.CustomerService;
 import com.st.util.ParamsUtil;
+import com.alibaba.fastjson.JSONObject;
 
 @Controller
 public class CustomerAction {
@@ -75,7 +77,19 @@ public class CustomerAction {
 	public TableJson customer_public_list(@RequestParam Map params,HttpSession session) {
 		int count=cusSer.getPublicCount(params,session);
 		List list=cusSer.customer_public_list(params,session);
-//		System.out.println(list);
+		System.out.println(list);
+//		Object listStr = list.get(0);
+//		JSONObject json=JSONObject.parseObject(listStr.toString());//关键
+//		String str = json.getString("Customer_tel");
+//		System.out.println(str);
+//		ListIterator<Object> iter = list.listIterator();
+//		Object first = iter.next();
+//		System.out.println(first);
+//		System.out.println(list.get(0).keys('a'));
+//		System.out.println(list.get(0).get('a'));
+//      JSONObject listjson = JSONObject(list.get(0));
+//		System.out.println(resultStr);
+//		System.out.println(first.Customer_number/first.Customer_max);
 //		list.add(list.get(0));
 //		list.remove(0);
 		return new TableJson(count,list);
