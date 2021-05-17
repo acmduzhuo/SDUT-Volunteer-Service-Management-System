@@ -72,9 +72,9 @@ public class CustomerAction {
 	@RequestMapping("customer_public_list")
 	@ResponseBody
 	//ajax返回数据
-	public TableJson customer_public_list(@RequestParam Map params) {
-		int count=cusSer.getPublicCount(params);
-		List list=cusSer.customer_public_list(params);
+	public TableJson customer_public_list(@RequestParam Map params,HttpSession session) {
+		int count=cusSer.getPublicCount(params,session);
+		List list=cusSer.customer_public_list(params,session);
 //		System.out.println(list);
 //		list.add(list.get(0));
 //		list.remove(0);

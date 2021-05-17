@@ -54,11 +54,13 @@ public class CustomerService {
 	 * 公海客户
 	 * @return
 	 */
-	public int getPublicCount(Map params) {
+	public int getPublicCount(Map params,HttpSession session) {
+		ParamsUtil.loginUserID(params, session);
 		return cusDao.getPublicCount(params);
 	}
-	public List customer_public_list(Map params) {
+	public List customer_public_list(Map params,HttpSession session) {
 		ParamsUtil.page(params);
+		ParamsUtil.loginUserID(params, session);
 		return cusDao.customer_public_list(params);
 	}
 	public void customer_private(Map params,HttpSession session) {
