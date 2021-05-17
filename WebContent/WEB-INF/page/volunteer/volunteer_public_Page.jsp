@@ -44,14 +44,14 @@ window.onload = function() {
       <th lay-data="{field:'Customer_liaison',sort: true}">负责人</th>
       <th lay-data="{field:'Customer_department',sort: true}">活动类型</th>
       <th lay-data="{field:'Customer_tel',sort: true}">手机号码</th>
-      <th lay-data="{field:'Customer_state', sort: true,
+      <!-- <th lay-data="{field:'Customer_state', sort: true,
       templet:function(data){
       if(data.Customer_state==0){
           return '未选择活动';
       }else{
           return '已选择活动';
       }
-      }}">状态</th>
+      }}">状态</th> -->
       <th lay-data="{field:'Customer_max', sort: true}">限额人数</th>
       <th lay-data="{field:'Customer_number', sort: true}">已参加人数</th>
       <th lay-data="{field:'Customer_addr', sort: true}">活动地点</th>
