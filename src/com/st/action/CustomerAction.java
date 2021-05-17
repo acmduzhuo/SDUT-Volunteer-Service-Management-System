@@ -103,8 +103,8 @@ public class CustomerAction {
 	}
 	@RequestMapping("customer_public")
 	@ResponseBody
-	public void customer_public(@RequestParam Map params) {
-		cusSer.customer_public(params);
+	public void customer_public(@RequestParam Map params,HttpSession session) {
+		cusSer.customer_public(params,session);
 	}
 	
 	/**

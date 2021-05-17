@@ -108,7 +108,7 @@
     </where>
 </select>
 <update id="customer_public"  parameterType="map">
-     update crm_customer set Customer_state=0, Customer_user_id='', Customer_user_name=''
+     update crm_customer set Customer_number=Customer_number-1, Customer_user_id=REPLACE(Customer_user_id,concat(' ',#{loginUserID}) , ''), Customer_user_name=REPLACE(Customer_user_name,concat(' ',(select User_realname from crm_user where User_id = #{loginUserID})) , '')
      where Customer_id=#{Customer_id}
 </update>
 

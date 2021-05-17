@@ -82,7 +82,8 @@ public class CustomerService {
 		ParamsUtil.loginUserID(params, session);
 		return cusDao.customer_private_list(params);
 	}
-	public void customer_public(Map params) {
+	public void customer_public(Map params,HttpSession session) {
+		ParamsUtil.loginUserID(params, session);
 		cusDao.customer_public(params);
 	}
 	/**
