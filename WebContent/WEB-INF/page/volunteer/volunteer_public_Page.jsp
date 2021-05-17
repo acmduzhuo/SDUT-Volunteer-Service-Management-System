@@ -38,7 +38,6 @@ window.onload = function() {
 <table class="layui-table" lay-data="{url:'customer_public_list', page:true, id:'customertable_id',toolbar:'#toolbar'}" lay-filter="customertable">
   <thead>
     <tr>
-     <th lay-data="{type:'checkbox'}"></th>
      <th lay-data="{type:'numbers'}">行号</th>
       <th lay-data="{field:'Customer_id', sort: true}">ID</th>
       <th lay-data="{field:'Customer_name',sort: true }">活动名称</th>
