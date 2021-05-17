@@ -81,8 +81,8 @@
 </select>
 <update id="customer_private" parameterType="map" >
     update crm_customer set Customer_number= Customer_number + 1
-    ,Customer_user_id=concat(Customer_user_id,' ',#{loginUserID})
-    ,Customer_user_name=concat(Customer_user_name,' ',(select User_realname from crm_user where User_id = #{loginUserID}))
+    ,Customer_user_id=concat(' ',Customer_user_id,#{loginUserID})
+    ,Customer_user_name=concat(' ',Customer_user_name,(select User_realname from crm_user where User_id = #{loginUserID}))
     where Customer_id = #{Customer_id}
 </update>
 
