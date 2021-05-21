@@ -18,11 +18,9 @@
 <script type="text/html" id="toolbar">
 	<input type="text" style="height:38px;" id="check"/>
 	<button class="layui-btn layui-icon layui-icon-search " lay-event="select">查询</button>
-	<button class="layui-btn layui-icon layui-icon-add-1" lay-event="insert">新增</button>
 	<button class="layui-btn layui-icon layui-icon-close" lay-event="del">删除</button>
 </script>
 <script type="text/html" id="rowtoolbar">
-	<a class="layui-btn layui-btn-xs layui-icon layui-icon-edit" lay-event="update">编辑</a>
 	<a class="layui-btn layui-btn-xs  layui-icon layui-icon-close layui-bg-red" lay-event="del">删除</a>
 </script>
 <table class="layui-table" lay-data="{url:'customer_qita_list', page:true, id:'customertable_id',toolbar:'#toolbar'}" lay-filter="customertable">
