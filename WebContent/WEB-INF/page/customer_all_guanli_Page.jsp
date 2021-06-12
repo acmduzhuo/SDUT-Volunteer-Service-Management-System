@@ -63,6 +63,14 @@
 		</div>
 		<div class="layui-form-item">
 			<div class="layui-inline">
+				<label class="layui-form-label">活动限额</label>
+				<div class="layui-input-inline">
+					<input name="customer_liaison" type="text"  class="layui-input kong" lay-verify="required">
+				</div>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
 				<label class="layui-form-label">负责人</label>
 				<div class="layui-input-inline">
 					<input name="customer_liaison" type="text"  class="layui-input kong" lay-verify="required">

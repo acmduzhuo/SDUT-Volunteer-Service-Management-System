@@ -71,14 +71,14 @@ var option1 = {
 	},
 	tooltip : {},
 	legend : {
-		data : [ '销量额' ]
+		data : [ '服务时长' ]
 	},
 	xAxis : {
 		data : tabledata1.name
 	},
 	yAxis : {},
 	series : [ {
-		name : '销量',
+		name : '服务时长',
 		type : 'bar',
 		data : tabledata1.money
 	} ]

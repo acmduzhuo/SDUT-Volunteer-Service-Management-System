@@ -79,15 +79,63 @@ public class CustomerAction {
 		List list=cusSer.customer_public_list(params,session);
 		System.out.println(list);
 //		Object listStr = list.get(0);
+//		System.out.println(listStr);
+		List listStr = list;
+//		int k;
+//		for (k=0; k<list.size(); k++) {
+//			listStr.add(k, list.get(k)); 
+//		}
 //		JSONObject json=JSONObject.parseObject(listStr.toString());//关键
 //		String str = json.getString("Customer_tel");
 //		System.out.println(str);
-//		ListIterator<Object> iter = list.listIterator();
+//		System.out.println(listStr.size());
+		int i, j;
+		for (i=0; i<listStr.size()-1; i++) {
+			for (j=i+1; j<listStr.size(); j++) {
+				String str_i1 = listStr.get(i).toString().substring(listStr.get(i).toString().indexOf("Customer_number")+16,listStr.get(i).toString().indexOf(", Customer_max"));
+				String str_i2 = listStr.get(i).toString().substring(listStr.get(i).toString().indexOf("Customer_max")+13,listStr.get(i).toString().indexOf(", Customer_state"));
+				int num_i1 = Integer.parseInt(str_i1);
+				int num_i2 = Integer.parseInt(str_i2);
+				float num_i = (float)num_i1 / (float)num_i2;
+				System.out.println(num_i);
+				String str_j1 = listStr.get(j).toString().substring(listStr.get(j).toString().indexOf("Customer_number")+16,listStr.get(j).toString().indexOf(", Customer_max"));
+				String str_j2 = listStr.get(j).toString().substring(listStr.get(j).toString().indexOf("Customer_max")+13,listStr.get(j).toString().indexOf(", Customer_state"));
+				int num_j1 = Integer.parseInt(str_j1);
+				int num_j2 = Integer.parseInt(str_j2);
+				float num_j = (float)num_j1 / (float)num_j2;
+				System.out.println(num_j);
+				if(num_i < num_j) {
+					Object listStrTemp = listStr.get(i);
+//					listStr.remove(i);
+//					listStr.add(i,listStr.get(j));
+//					listStr.remove(j);
+//					listStr.add(j,listStrTemp);
+					listStr.set(i, listStr.get(j));
+					listStr.set(j, listStrTemp);
+				}
+			}
+		}
+//		System.out.println(listStr);
+//		for (int i=0; i<listStr.size(); i++) {
+//			listStr.get(i).toString().indexOf("Customer_number")
+//			listStr.get(i).toString().indexOf("Customer_number")
+//			System.out.println(listStr.get(i).toString());
+//			String str1 = listStr.get(i).toString().substring(listStr.get(i).toString().indexOf("Customer_number")+16,listStr.get(i).toString().indexOf(", Customer_max"));
+//			String str2 = listStr.get(i).toString().substring(listStr.get(i).toString().indexOf("Customer_max")+13,listStr.get(i).toString().indexOf(", Customer_state"));
+//			int num1 = Integer.parseInt(str1);
+//			int num2 = Integer.parseInt(str2);
+//			float num = (float)num1 / (float)num2;
+//			System.out.println(num);
+//			System.out.println(listStr.get(i).toString().substring(listStr.get(i).toString().indexOf("Customer_number")+16,listStr.get(i).toString().indexOf(", Customer_max")));
+//			System.out.println(listStr.get(i).toString().substring(listStr.get(i).toString().indexOf("Customer_max")+13,listStr.get(i).toString().indexOf(", Customer_state")));
+//		}
+//		System.out.println(listStr.get(i).toString().indexOf("Customer_number"));
+//		ListIterator<Object> iter = listStr.listIterator();
 //		Object first = iter.next();
 //		System.out.println(first);
 //		System.out.println(list.get(0).keys('a'));
 //		System.out.println(list.get(0).get('a'));
-//      JSONObject listjson = JSONObject(list.get(0));
+//       JSONObject listjson = JSONObject(list.get(0));
 //		System.out.println(resultStr);
 //		System.out.println(first.Customer_number/first.Customer_max);
 //		list.add(list.get(0));
